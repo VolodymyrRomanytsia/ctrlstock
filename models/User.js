@@ -19,11 +19,11 @@ const userSchema =new Schema({
     password: {
         type: String,
         required: true
+    },
+    check: {
+        type: Boolean,
+        default: false
     }
-    // imageSrc: {
-    //     type: String,
-    //     default: ''
-    // }
 })
 
 module.exports = mongoose.model('users', userSchema)

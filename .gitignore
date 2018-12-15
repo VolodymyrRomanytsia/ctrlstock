@@ -60,4 +60,4 @@ typings/
 # next.js build output
 .next
 
-config/keys.dev.js
+# config/keys.dev.js

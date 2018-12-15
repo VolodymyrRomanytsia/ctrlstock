@@ -18,6 +18,10 @@ export class UserService {
     return this.http.get<User>(`/api/user/${id}`)
   }
 
+  getCheck(id: string): Observable<Boolean> {
+    return this.http.get<Boolean>(`/api/user/check/${id}`)
+  }
+
   update(id: string, user: User): Observable<User> {
     return this.http.patch<User>(`/api/user/${id}`, user)
   }
