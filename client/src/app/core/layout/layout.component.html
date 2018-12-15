@@ -1,0 +1,64 @@
+<div class="sidenav-area">
+    <mat-sidenav-container>
+      <mat-sidenav class="sidenav" #start (opened)="login.focus()" mode="push">
+        <ul class="side-nav">
+          <h4 class="purple-text text-darken-4 center">CtrlStock</h4>
+          <li>
+            <div class="divider"></div>
+          </li>
+          <li>
+            <a routerLink="" (click)="start.close()">
+                <mat-icon>home</mat-icon>Home</a>
+          </li>
+          <li>
+            <a routerLink="solution" (click)="start.close()">
+                <mat-icon>settings</mat-icon>Solutions</a>
+          </li>
+          <li>
+            <a [ngClass]="{'hide': isAuthenticated()}" routerLink="register" (click)="start.close()">
+                <mat-icon>person</mat-icon>Sign Up</a>
+            <a [ngClass]="{'hide': !isAuthenticated()}" (click)="start.close(openUserPage())"> 
+                <mat-icon>person</mat-icon>User Page</a> 
+          </li>
+          <li>
+            <div class="divider"></div>
+          </li>
+          <li>
+            <a #login (click)="start.close(openModal())" [ngClass]="{'hide': isAuthenticated()}"  class="btn purple">Login</a>
+            <a (click)="start.close(logout($event))" [ngClass]="{'hide': !isAuthenticated()}" class="btn purple">Exit</a>
+          </li>
+        </ul>
+      </mat-sidenav>
+      <mat-sidenav-content>
+        <div>
+            <nav class="transparent">
+              <div class="container">
+                <div class="nav-wrapper">
+                  <a routerLink="" class="brand-logo">CtrlStock</a>
+                  <a class="hide-on-large-only large" (click)="start.toggle(undefined, 'mouse')"><mat-icon>menu</mat-icon></a>
+                  <ul class="right hide-on-med-and-down">
+                    <li>
+                      <a routerLink="">Home</a>
+                    </li>
+                    <li>
+                      <a routerLink="solution">Solutions</a>
+                    </li>
+                    <li>
+                      <a [ngClass]="{'hide': isAuthenticated()}" routerLink="register">Sign Up</a>
+                      <a [ngClass]="{'hide': !isAuthenticated()}" (click)="openUserPage()">User Page</a>
+                    </li>
+                    <li>
+                      <a [ngClass]="{'hide': isAuthenticated()}" (click)="openModal()" class="btn purple modal-trigger">Login</a>
+                      <a [ngClass]="{'hide': !isAuthenticated()}" (click)="logout($event)" class="btn purple modal-trigger">Exit</a> 
+                    </li>
+                  </ul>
+                </div>
+              </div> 
+            </nav>
+          </div>
+          <router-outlet></router-outlet>
+          <app-footer></app-footer>
+      </mat-sidenav-content>
+    </mat-sidenav-container>
+  </div>
+  

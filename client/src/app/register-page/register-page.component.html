@@ -1,0 +1,105 @@
+<div class="sidenav-area">
+  <div class="showcase container">
+    <div class="row">
+      <div class="col s12 m10 offset-m1 center">
+        <h5>Welcome To CtrlStock</h5>
+        <h1>Create An Account</h1>
+      </div>
+    </div>
+  </div>
+</div>
+<section class="section section-signup">
+    <div class="container">
+      <div class="row">
+        <div class="col s12 m6">
+          <h4>Get a free account</h4>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus veniam id nisi? Saepe sint ipsum distinctio
+            molestiae, recusandae autem sequi?</p>
+          <h4>Download the software</h4>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus veniam id nisi? Saepe sint ipsum distinctio
+            molestiae, recusandae autem sequi?</p>
+        </div>
+        <div class="col s12 m6">
+          <div class="card-panel grey lighten-4 grey-text text-darken-4 z-depth-0">
+            <form
+            [formGroup]="form"
+            (ngSubmit)="onSubmit()"
+            >  
+              <div class="input-field">
+                <input 
+                  formControlName="firstName"
+                  type="text" 
+                  id="first_name">
+                <label for="first_name">First Name</label>
+                <span 
+                  class="helper-text red-text"
+                  *ngIf="form.get('firstName').invalid && form.get('firstName').touched"
+                  >
+                  <span *ngIf="form.get('firstName').errors['required']">firstName не може бути пустим</span>
+                </span>
+              </div>
+              <div class="input-field">
+                <input 
+                  formControlName="lastName"
+                  type="text" 
+                  id="last_name">
+                <label for="last_name">Last Name</label>
+                <span 
+                  class="helper-text red-text"
+                  *ngIf="form.get('lastName').invalid && form.get('lastName').touched"
+                  >
+                  <span *ngIf="form.get('lastName').errors['required']">lastName не може бути пустим</span>
+                </span>
+              </div>
+              <div class="input-field">
+                <input 
+                  [ngClass]="{'invalid': form.get('email').invalid && form.get('email').touched}"
+                  formControlName="email"
+                  type="email" 
+                  id="email">
+                <label for="email">Email</label>
+                <span 
+                  class="helper-text red-text"
+                  *ngIf="form.get('email').invalid && form.get('email').touched"
+                  >
+                  <span *ngIf="form.get('email').errors['required']">Email не може бути пустим</span>
+                  <span *ngIf="form.get('email').errors['email']">Введіть коректний email</span>
+                </span>
+              </div>
+              <div class="input-field">
+                <input 
+                  [ngClass]="{'invalid': form.get('password').invalid && form.get('password').touched}"
+                  formControlName="password"
+                  type="password" 
+                  id="password">
+                <label for="password">Password</label>
+                <span 
+                  class="helper-text red-text"
+                  *ngIf="form.get('password').invalid && form.get('password').touched"
+                  >
+                  <span *ngIf="form.get('password').errors['required']">Password не може бути пустим</span>
+                  <span *ngIf="form.get('password').errors['minlength']">
+                      Password має бути більше {{form.get('password').errors['minlength']['requiredLength']}} символів.
+                      Зараз {{form.get('password').errors['minlength']['actualLength']}}
+                  </span>
+                </span>
+              </div>
+              <div class="card-action">
+                <button  
+                  type="submit"
+                  class="btn-large btn purple waves-effect"
+                  [disabled]="form.invalid || form.disabled"
+                  >
+                   Sign Up
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+  
