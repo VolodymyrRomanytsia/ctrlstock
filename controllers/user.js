@@ -32,14 +32,12 @@ module.exports.remove = async function(req, res) {
 
 
 module.exports.update = async function(req, res) {
-  const updated = {
-    name: req.body.name
-  }
-
   try {
     const user = await User.findOneAndUpdate(
       {_id: req.params.id},
-      {$set: updated},
+      {$set: {email: req.body.email,
+              firstName: req.body.firstName, 
+              lastName: req.body.lastName}},
       {new: true}
     )
     res.status(200).json(user)
@@ -51,6 +49,19 @@ module.exports.update = async function(req, res) {
 module.exports.getCheck = async function(req, res) {
   try {
     const user = await User.findById(req.params.id)
+    res.status(200).json(user.check)
+  } catch (e) {
+    errorHandler(res, e)
+  }
+}
+
+module.exports.updateCheck = async function(req, res) {
+  try {
+    const user = await User.findOneAndUpdate(
+      {_id: req.params.id},
+      {$set: {check: req.body.check}},
+      {new: true}
+    )
     res.status(200).json(user.check)
   } catch (e) {
     errorHandler(res, e)
