@@ -8,5 +8,6 @@ router.get('/:id', passport.authenticate('jwt', {session: false}), controller.ge
 router.delete('/:id', passport.authenticate('jwt', {session: false}), controller.remove)
 router.patch('/:id', passport.authenticate('jwt', {session: false}), controller.update)
 router.get('/check/:id', passport.authenticate('jwt', {session: false}), controller.getCheck)
+router.patch('/check/:id', passport.authenticate('jwt', {session: false}), controller.updateCheck)
 
 module.exports = router
