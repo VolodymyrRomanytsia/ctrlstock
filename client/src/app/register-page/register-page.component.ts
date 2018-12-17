@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { FormGroup, FormControl, Validators, AbstractControl } from '@angular/forms';
 import { AuthServise } from '../core/services/auth.service';
 import { Subscription } from 'rxjs';
 import { Router } from '@angular/router';
@@ -23,8 +23,19 @@ export class RegisterPageComponent implements OnInit, OnDestroy {
       firstName: new FormControl(null,  [Validators.required]),
       lastName: new FormControl(null,  [Validators.required]),
       email: new FormControl(null, [Validators.required, Validators.email]),
-      password: new FormControl(null, [Validators.required, Validators.minLength(8)])
-    })
+      password: new FormControl(null, [Validators.required, Validators.minLength(8)]),
+      confirmPassword: new FormControl(null, [Validators.required])
+    }, {validators: passwordMatchValidator});
+
+    function passwordMatchValidator (AC: AbstractControl) {
+      let password = AC.get('password').value;
+      let confirmPassword = AC.get('confirmPassword').value; 
+       if(password != confirmPassword) {
+           AC.get('confirmPassword').setErrors( {MatchPassword: true} )
+       } else {
+           return null
+       }
+      }
   }
 
   ngOnDestroy() {

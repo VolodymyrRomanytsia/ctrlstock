@@ -84,6 +84,21 @@
                   </span>
                 </span>
               </div>
+              <div class="input-field">
+                <input 
+                  [ngClass]="{'invalid': form.get('confirmPassword').invalid && form.get('confirmPassword').touched}"
+                  formControlName="confirmPassword"
+                  type="password" 
+                  id="confirmPassword">
+                <label for="confirmPassword">Confirm password</label>
+                <span 
+                  class="helper-text red-text"
+                  *ngIf="form.get('confirmPassword').invalid && form.get('confirmPassword').touched"
+                  >
+                  <span *ngIf="form.get('confirmPassword').errors['required']">Confirm password не може бути пустим</span>
+                  <span *ngIf="form.get('confirmPassword').errors.MatchPassword">Паролі не співпадають</span>
+                </span>
+              </div>
               <div class="card-action">
                 <button  
                   type="submit"
