@@ -47,11 +47,12 @@ module.exports.update = async function(req, res) {
 }
 
 module.exports.getCheck = async function(req, res) {
+  
   try {
-    const user = await User.findById(req.params.id)
+    const user = await User.findOne({_id: req.params.id, check: true, paymentExpiration: {$gt: Date.now()}})
     res.status(200).json(user.check)
   } catch (e) {
-    errorHandler(res, e)
+    res.status(500).json(false)
   }
 }
 
@@ -59,7 +60,8 @@ module.exports.updateCheck = async function(req, res) {
   try {
     const user = await User.findOneAndUpdate(
       {_id: req.params.id},
-      {$set: {check: req.body.check}},
+      {$set: {check: true,
+              paymentExpiration: Date.now() + 2678400000}},
       {new: true}
     )
     res.status(200).json(user.check)
@@ -67,3 +69,4 @@ module.exports.updateCheck = async function(req, res) {
     errorHandler(res, e)
   }
 }
+

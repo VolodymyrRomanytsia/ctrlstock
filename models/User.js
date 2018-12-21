@@ -25,7 +25,8 @@ const userSchema =new Schema({
         default: false
     },
     resetToken: String,
-    resetTokenExpiration: Date
+    resetTokenExpiration: Date,
+    paymentExpiration: Date
 })
 
 module.exports = mongoose.model('users', userSchema)
