@@ -1,6 +1,5 @@
 <form
   [formGroup]="form"
-  (ngSubmit)="onSubmit()"
   >  
   <h4 mat-dialog-title>Account Login</h4>
   <div mat-dialog-content>
@@ -40,15 +39,17 @@
     </div>
   </div>
 
-  <div class="card-action right-align">
-    <button 
-      class="modal-action modal-close btn grey"
+  <div class="right-align">
+    <button (click)="onReset()"
+      class="modal-close btn grey"
+      [disabled]="form.invalid || form.disabled"
       >
-      <mat-icon>home</mat-icon> Reset Password
+      Reset Password
     </button>
 
     <button  
       type="submit"
+      (click)="onSubmit()"
       class="modal-action modal-close btn purple waves-effect"
       [disabled]="form.invalid || form.disabled"
       >

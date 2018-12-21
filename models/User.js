@@ -23,7 +23,9 @@ const userSchema =new Schema({
     check: {
         type: Boolean,
         default: false
-    }
+    },
+    resetToken: String,
+    resetTokenExpiration: Date
 })
 
 module.exports = mongoose.model('users', userSchema)

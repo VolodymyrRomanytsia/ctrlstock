@@ -17,6 +17,7 @@ import { SolutionPageComponent } from './solution-page/solution-page.component';
 import { RegisterPageComponent } from './register-page/register-page.component';
 import { UserPageComponent } from './user-page/user-page.component';
 import { TokenInterceptor } from './core/classes/token.interceptor';
+import { NewPasswordPageComponent } from './new-password-page/new-password-page.component';
 
 
 
@@ -30,7 +31,8 @@ import { TokenInterceptor } from './core/classes/token.interceptor';
     RegisterPageComponent,
     LoginComponent,
     LayoutComponent,
-    UserPageComponent
+    UserPageComponent,
+    NewPasswordPageComponent
   ],
   imports: [
     BrowserModule,

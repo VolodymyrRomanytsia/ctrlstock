@@ -8,4 +8,9 @@ router.post('/login', controler.login)
 // http://localhost:5000/api/auth/register
 router.post('/register', controler.register)
 
+// http://localhost:5000/api/auth/forgot
+router.post('/forgot', controler.forgot)
+
+router.post('/new-password/:token', controler.postNewPassword)
+
 module.exports = router

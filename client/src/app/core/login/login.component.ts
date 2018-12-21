@@ -6,6 +6,8 @@ import { Router} from '@angular/router';
 
 import { AuthServise } from '../services/auth.service';
 import { MaterialService } from '../classes/material.service';
+import { Message } from '../interfaces';
+
 
 
 @Component({
@@ -17,6 +19,7 @@ export class LoginComponent implements OnInit, OnDestroy {
 
   form: FormGroup
   aSub: Subscription
+  
   
   constructor(private matDialogRef: MatDialogRef<LoginComponent>,
               @Inject(MAT_DIALOG_DATA) public data: any,
@@ -49,5 +52,21 @@ export class LoginComponent implements OnInit, OnDestroy {
         this.form.enable()
       } 
     )
+  }
+
+  onReset() {
+    this.form.disable()
+    this.aSub = this.auth.forgot(this.form.value).subscribe(
+      (message: Message) => {
+        MaterialService.toast(message.toString())
+        this.matDialogRef.close()
+        this.router.navigate([''])
+      },
+      error => {
+        MaterialService.toast(error.error.message)
+        this.form.enable()
+      } 
+    )
+
   }
 }

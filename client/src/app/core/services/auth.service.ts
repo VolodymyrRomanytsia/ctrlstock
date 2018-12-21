@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core";
-import { User } from '../interfaces';
+import { User, Message } from '../interfaces';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import {tap} from 'rxjs/operators';
@@ -59,6 +59,16 @@ export class AuthServise {
         this.setId(null)
         this.setToken(null)
         localStorage.clear()
+    }
+
+    forgot(user: User): Observable<Message> {
+        return this.http.post<Message>('api/auth/forgot', user)
+
+    }
+
+    postReset(token: string, user: User): Observable<Message> {
+        return this.http.post<Message>(`api/auth/new-password/${token}`, user)
+
     }
 
 }
