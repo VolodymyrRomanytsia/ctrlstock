@@ -8,17 +8,21 @@
           </li>
           <li>
             <a routerLink="" (click)="start.close()">
-                <mat-icon>home</mat-icon>Home</a>
+                <mat-icon class="icon">home</mat-icon>Home</a>
           </li>
-          <li>
+          <!-- <li>
             <a routerLink="solution" (click)="start.close()">
-                <mat-icon>settings</mat-icon>Solutions</a>
+                <mat-icon class="icon">settings</mat-icon>Solutions</a>
+          </li> -->
+          <li>
+            <a routerLink="faq" (click)="start.close()">
+                <mat-icon class="icon">question_answer</mat-icon>F.A.Q.</a>
           </li>
           <li>
             <a [ngClass]="{'hide': isAuthenticated()}" routerLink="register" (click)="start.close()">
-                <mat-icon>person</mat-icon>Sign Up</a>
+                <mat-icon class="icon">person</mat-icon>Sign Up</a>
             <a [ngClass]="{'hide': !isAuthenticated()}" (click)="start.close(openUserPage())"> 
-                <mat-icon>person</mat-icon>User Page</a> 
+                <mat-icon class="icon">person</mat-icon>User Page</a> 
           </li>
           <li>
             <div class="divider"></div>
@@ -31,7 +35,7 @@
       </mat-sidenav>
       <mat-sidenav-content>
         <div>
-            <nav class="transparent">
+            <nav class="transparent deep-purple darken-1">
               <div class="container">
                 <div class="nav-wrapper">
                   <a routerLink="" class="brand-logo">CtrlStock</a>
@@ -40,8 +44,11 @@
                     <li>
                       <a routerLink="">Home</a>
                     </li>
-                    <li>
+                    <!-- <li>
                       <a routerLink="solution">Solutions</a>
+                    </li> -->
+                    <li>
+                        <a routerLink="faq">F.A.Q.</a>
                     </li>
                     <li>
                       <a [ngClass]="{'hide': isAuthenticated()}" routerLink="register">Sign Up</a>

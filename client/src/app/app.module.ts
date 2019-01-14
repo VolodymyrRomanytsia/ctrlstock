@@ -18,6 +18,7 @@ import { RegisterPageComponent } from './register-page/register-page.component';
 import { UserPageComponent } from './user-page/user-page.component';
 import { TokenInterceptor } from './core/classes/token.interceptor';
 import { NewPasswordPageComponent } from './new-password-page/new-password-page.component';
+import { FaqPageComponent } from './faq-page/faq-page.component';
 
 
 
@@ -32,7 +33,8 @@ import { NewPasswordPageComponent } from './new-password-page/new-password-page.
     LoginComponent,
     LayoutComponent,
     UserPageComponent,
-    NewPasswordPageComponent
+    NewPasswordPageComponent,
+    FaqPageComponent
   ],
   imports: [
     BrowserModule,

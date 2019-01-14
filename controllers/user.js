@@ -64,9 +64,23 @@ module.exports.updateCheck = async function(req, res) {
               paymentExpiration: Date.now() + 2678400000}},
       {new: true}
     )
-    res.status(200).json(user.check)
+    res.status(200).json(user.paymentExpiration)
   } catch (e) {
     errorHandler(res, e)
   }
 }
+
+module.exports.pay = async function(req, res) {
+  const payment = new Payment({
+    payment_id: req.body.payment_id,
+    response_status: req.body.response_status
+  })
+  try{
+      await payment.save()
+      res.status(201).json(payment)
+  }catch(e){
+      errorHandler(res, e)
+  }
+}
+
 

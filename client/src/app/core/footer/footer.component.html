@@ -12,8 +12,11 @@
               <a class="grey-text text-lighten-3" routerLink="">Home</a>
             </li>
             <li>
-              <a class="grey-text text-lighten-3" routerLink="solution">Solutions</a>
+                <a class="grey-text text-lighten-3" routerLink="faq">F.A.Q.</a>
             </li>
+            <!-- <li>
+              <a class="grey-text text-lighten-3" routerLink="solution">Solutions</a>
+            </li> -->
             <li>
               <a [ngClass]="{'hide': isAuthenticated()}" class="grey-text text-lighten-3" routerLink="register">Signup</a>
               <a [ngClass]="{'hide': !isAuthenticated()}" class="grey-text text-lighten-3" (click)="openUserPage()">User Page</a>
@@ -25,7 +28,7 @@
     </div>
     <div class="footer-copyright deep-purple darken-1">
       <div class="container">
-        CtrlStock &copy; 2018
+        CtrlStock &copy; 2019
         <a class="grey-text text-lighten-4 right" href="#!">Terms & Conditions</a>
       </div>
     </div>

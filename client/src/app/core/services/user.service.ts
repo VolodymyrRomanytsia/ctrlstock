@@ -22,11 +22,19 @@ export class UserService {
     return this.http.get<Boolean>(`/api/user/check/${id}`)
   }
 
+  postCheck(id: string, payment): Observable<User> {
+    return this.http.post<User>(`/api/user/${id}`, payment)
+  }
+
   update(id: string, user: User): Observable<User> {
     return this.http.patch<User>(`/api/user/${id}`, user)
   }
 
   delete(id: string): Observable<Message> {
     return this.http.delete<Message>(`/api/user/${id}`)
+  }
+
+  pay(id: string, form){
+    return this.http.post(`/api/user/${id}`, form)
   }
 }

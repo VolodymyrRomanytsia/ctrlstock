@@ -1,10 +1,23 @@
 .sidenav-area {
-    background: url(../../assets/img/background.jpg);
+    /* background: url(../../assets/img/background.jpg); */
+    background-color: rgba(36, 3, 63, 0.671);
+    background-blend-mode: darken;
     background-size: cover;
     background-position: center;
-    color: #fff;
+    color: rgb(255, 255, 255);
 }
+ 
+.parallax-container{
+   height: 420px;
+}
+
+/* .parallax{
+    background-size: cover;
+    background-position: center;
+} */
+
 .showcase{
     padding-top: 40px;
     padding-bottom: 40px;
 }
+

@@ -1,0 +1,63 @@
+<div class="showcase container ">
+  <mat-accordion class="example-headers-align">
+      <mat-expansion-panel [expanded]="step === 0" (opened)="setStep(0)">
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            1. What is CTRLSTOCK?
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt dicta sint quo laboriosam sunt facilis voluptatibus, perferendis culpa animi hic eius deserunt nihil. Non facere hic quisquam fugit, optio aut.</p>
+        <mat-action-row>
+          <button mat-button color="primary" (click)="nextStep()">Next</button>
+        </mat-action-row>
+      </mat-expansion-panel>
+      <mat-expansion-panel [expanded]="step === 1" (opened)="setStep(1)">
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            2.  What is the difference between a monthly and an annual subscription?
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo cumque delectus totam quas sint sequi illo voluptas soluta veniam minus labore accusantium aliquam rem quam ut, tempora optio pariatur deleniti?</p>
+        <mat-action-row>
+          <button mat-button color="warn" (click)="prevStep()">Previous</button>
+          <button mat-button color="primary" (click)="nextStep()">Next</button>
+        </mat-action-row>
+      </mat-expansion-panel>
+      <mat-expansion-panel [expanded]="step === 2" (opened)="setStep(2)">
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            3. How does CTRLSTOCK work and what is the principle of this program?
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Velit sed nihil, laborum officia voluptatum ea perspiciatis vitae, dolorum deleniti dolores, illo nisi nostrum vel inventore voluptas quisquam qui autem. Deleniti.</p>
+        <mat-action-row>
+          <button mat-button color="warn" (click)="prevStep()">Previous</button>
+          <button mat-button color="primary" (click)="nextStep()">Next</button>
+        </mat-action-row>
+      </mat-expansion-panel>
+      <mat-expansion-panel [expanded]="step === 3" (opened)="setStep(3)">
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            4. How does this program help Stock Photographers / Video Operators?
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae veniam odio, voluptate id ullam suscipit accusamus magni adipisci illum minus, dolorum placeat laborum voluptas dolores, quis commodi quam modi. Recusandae.</p>
+        <mat-action-row>
+          <button mat-button color="warn" (click)="prevStep()">Previous</button>
+          <button mat-button color="primary" (click)="nextStep()">Next</button>
+        </mat-action-row>
+        </mat-expansion-panel>
+        <mat-expansion-panel [expanded]="step === 4" (opened)="setStep(4)">
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              5. Lorem ipsum dolor, sit amet consectetur adipisicing elit?
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Cumque autem, nam sunt beatae molestiae deserunt atque voluptatum. Eveniet corporis fugiat, nostrum vitae cum, similique magnam neque at quos quas cupiditate.</p>
+          <mat-action-row>
+            <button mat-button color="warn" (click)="prevStep()">Previous</button>
+            <button mat-button color="primary" (click)="nextStep()">End</button>
+          </mat-action-row>
+        </mat-expansion-panel>
+  </mat-accordion>
+</div>

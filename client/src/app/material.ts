@@ -1,15 +1,3 @@
-// import { NgModule } from '@angular/core';
-// import {MatButtonModule, MatCheckboxModule} from '@angular/material';
-// import {MatToolbarModule} from '@angular/material/toolbar';
-// import {MatIconModule} from '@angular/material/icon';
-// import {MatSidenavModule} from '@angular/material/sidenav';
-
-// @NgModule({
-//   imports: [MatButtonModule, MatCheckboxModule, MatToolbarModule, MatIconModule, MatSidenavModule],
-//   exports: [MatButtonModule, MatCheckboxModule, MatToolbarModule, MatIconModule, MatSidenavModule],
-// })
-// export class MaterialModule { }
-
 import {DragDropModule} from '@angular/cdk/drag-drop';
 import {ScrollingModule} from '@angular/cdk/scrolling';
 import {CdkTableModule} from '@angular/cdk/table';

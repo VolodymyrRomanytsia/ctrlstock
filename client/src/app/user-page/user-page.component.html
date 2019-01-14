@@ -1,58 +1,38 @@
-<p>
-  {{firstName}}
-  {{lastName}}
-</p>
-<p>
-  {{email}}
-</p>
-
-
-
-
-
-
-
-
-<!-- <form class="checkout-form">
-  <input type="hidden" name="payment_system" value="card">
-  <input type="hidden" name="merchant_id" value="1396424">
-  <input type="hidden" name="amount" value="100">
-  <input type="hidden" name="currency" value="USD">
-  <input type="hidden" name="email" value="client@example.com" />
-  <input type="hidden" name="response_url" value="https://example.com/" />
+<section class="section">
   <div class="container">
-    <div class="error-wrapper"></div>
-    <div class="input-wrapper">
-      <div class="input-label w-1">
-        Card Number:
+    <div class="row">
+      <div class="col s12 m3">
+        <h4>{{firstName}} {{lastName}}</h4>
+        <p>{{email}}</p>
       </div>
-      <div class="input-field w-1">
-        <input type="tel" name="card_number" class="input" onkeydown="nextInput(this,event)" maxlength="16" placeholder="XXXXXXXXXXXXXXXX" />
-      </div>
-    </div>
-    <div class="input-wrapper">
-      <div class="input-label w-3-2">
-        Expiry Date:
-      </div>
-      <div class="input-label w-3">
-        CVV2:
-      </div>
-      <div class="input-field w-3">
-        <input type="tel" name="expiry_month" onkeydown="nextInput(this,event)" class="input" maxlength="2" placeholder="MM" />
-      </div>
-      <div class="input-field w-3">
-        <input type="tel" name="expiry_year" onkeydown="nextInput(this,event)" class="input" maxlength="2" placeholder="YY" />
-      </div>
-      <div class="input-field w-3">
-        <input type="tel" name="cvv2" onkeydown="nextInput(this,event)" class="input" maxlength="3" placeholder="XXX" />
-      </div>
-    </div>
-    <div class="input-wrapper stack-1">
-      <div class="input-field w-1">
-        <button type="submit" onkeydown="nextInput(this,event)" class="button">Pay</button>
+      <div class="col s12 m9">
+        <div class="card-panel grey lighten-4 grey-text text-darken-4 z-depth-0">
+              <div class="row">
+                <div class="col s12 m6">
+                  <div class="card-panel center">
+                    <i class="fa fa-user fa-3x deep-purple-text text-darken-2"></i>
+                    <h5 class="grey-text text-darken-4">Monthly</h5>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad, suscipit!</p>
+                    <a class="btn btn-lg btn-primary" (click)="pay()">
+                      Pay 9.99 USD
+                    </a>
+                  </div>
+                </div>
+                <div class="col s12 m6">
+                  <div class="card-panel center">
+                    <i class="fa fa-database fa-3x deep-purple-text text-darken-2"></i>
+                    <h5 class="grey-text text-darken-4">Yearly</h5>
+                    <p class="green-text">Save 20$ a year</p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad, suscipit!</p>
+                    <a class="btn btn-lg btn-primary" (click)="pay()">
+                      Pay 99.99 USD
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+        </div>
       </div>
     </div>
   </div>
-</form> -->
-
-
+</section>
