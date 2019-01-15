@@ -25,7 +25,7 @@ export class NewPasswordPageComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.form = new FormGroup({
-      password: new FormControl(null, [Validators.required, Validators.minLength(8)]),
+      password: new FormControl(null, [Validators.required, Validators.minLength(8), Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])[a-zA-Z0-9]+$')]),
       confirmPassword: new FormControl(null, [Validators.required])
     }, {validators: passwordMatchValidator});
 

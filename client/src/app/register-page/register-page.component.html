@@ -35,7 +35,7 @@
                   class="helper-text red-text"
                   *ngIf="form.get('firstName').invalid && form.get('firstName').touched"
                   >
-                  <span *ngIf="form.get('firstName').errors['required']">firstName не може бути пустим</span>
+                  <span *ngIf="form.get('firstName').errors['required']">First Name is required</span>
                 </span>
               </div>
               <div class="input-field">
@@ -48,7 +48,7 @@
                   class="helper-text red-text"
                   *ngIf="form.get('lastName').invalid && form.get('lastName').touched"
                   >
-                  <span *ngIf="form.get('lastName').errors['required']">lastName не може бути пустим</span>
+                  <span *ngIf="form.get('lastName').errors['required']">Last Name is required</span>
                 </span>
               </div>
               <div class="input-field">
@@ -62,8 +62,8 @@
                   class="helper-text red-text"
                   *ngIf="form.get('email').invalid && form.get('email').touched"
                   >
-                  <span *ngIf="form.get('email').errors['required']">Email не може бути пустим</span>
-                  <span *ngIf="form.get('email').errors['email']">Введіть коректний email</span>
+                  <span *ngIf="form.get('email').errors['required']">Email is required</span>
+                  <span *ngIf="form.get('email').errors['email']">Enter a valid email</span>
                 </span>
               </div>
               <div class="input-field">
@@ -77,10 +77,13 @@
                   class="helper-text red-text"
                   *ngIf="form.get('password').invalid && form.get('password').touched"
                   >
-                  <span *ngIf="form.get('password').errors['required']">Password не може бути пустим</span>
+                  <span *ngIf="form.get('password').errors['required']">Password is required</span>
                   <span *ngIf="form.get('password').errors['minlength']">
-                      Password має бути більше {{form.get('password').errors['minlength']['requiredLength']}} символів.
-                      Зараз {{form.get('password').errors['minlength']['actualLength']}}
+                      Password must be at least {{form.get('password').errors['minlength']['requiredLength']}} characters long.
+                      Now {{form.get('password').errors['minlength']['actualLength']}}
+                  </span>
+                  <span *ngIf="form.get('password').errors['pattern'] && !form.get('password').errors['minlength']">
+                      Your password must contain only numbers and letters, at least one uppercase, one lowercase, and one number
                   </span>
                 </span>
               </div>
@@ -95,8 +98,8 @@
                   class="helper-text red-text"
                   *ngIf="form.get('confirmPassword').invalid && form.get('confirmPassword').touched"
                   >
-                  <span *ngIf="form.get('confirmPassword').errors['required']">Confirm password не може бути пустим</span>
-                  <span *ngIf="form.get('confirmPassword').errors.MatchPassword">Паролі не співпадають</span>
+                  <span *ngIf="form.get('confirmPassword').errors['required']">Confirm password is required</span>
+                  <span *ngIf="form.get('confirmPassword').errors.MatchPassword">Password mismatch</span>
                 </span>
               </div>
               <div class="card-action">
