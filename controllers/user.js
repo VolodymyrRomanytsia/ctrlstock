@@ -52,7 +52,7 @@ module.exports.getCheck = async function(req, res) {
     if (user) {
       res.status(200).json(user.check)
   } else {
-    res.status(402).json(false)
+    res.status(200).json(false)
   }} catch (e) {
     errorHandler(res, e)
   } 
