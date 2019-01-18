@@ -17,14 +17,7 @@
     height: 100%;
     overflow: hidden;
   }
-  
-  /* .transparent{
-      background: url(../../../assets/img/background.jpg);
-      background-size: cover;
-      background-position: center;
-      color: #fff;
-  } */
-  
+
   .mat-sidenav-container {
     flex: 1;
   }

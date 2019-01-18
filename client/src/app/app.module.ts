@@ -19,6 +19,8 @@ import { UserPageComponent } from './user-page/user-page.component';
 import { TokenInterceptor } from './core/classes/token.interceptor';
 import { NewPasswordPageComponent } from './new-password-page/new-password-page.component';
 import { FaqPageComponent } from './faq-page/faq-page.component';
+import { LoaderComponent } from './core/loader/loader.component';
+import { LoaderInterceptorService } from './core/services/loader-interceptor.service';
 
 
 
@@ -34,7 +36,8 @@ import { FaqPageComponent } from './faq-page/faq-page.component';
     LayoutComponent,
     UserPageComponent,
     NewPasswordPageComponent,
-    FaqPageComponent
+    FaqPageComponent,
+    LoaderComponent
   ],
   imports: [
     BrowserModule,
@@ -51,6 +54,11 @@ import { FaqPageComponent } from './faq-page/faq-page.component';
       provide: HTTP_INTERCEPTORS,
       multi: true,
       useClass: TokenInterceptor
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: LoaderInterceptorService,
+      multi: true
     }
   ],
   bootstrap: [AppComponent],

@@ -11,9 +11,7 @@ import { AuthServise } from '../services/auth.service';
   styleUrls: ['./layout.component.css']
 })
 export class LayoutComponent implements OnInit {
-
-  // isAuthenticate = true
-
+  
   constructor(public dialog: MatDialog,
               private route: ActivatedRoute,
               private router: Router,

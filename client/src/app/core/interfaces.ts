@@ -10,3 +10,7 @@ export interface User {
 export interface Message {
     message: string
   }
+
+export interface LoaderState {
+    show: boolean;
+  }

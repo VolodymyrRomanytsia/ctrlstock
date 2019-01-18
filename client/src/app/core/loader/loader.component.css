@@ -1,0 +1,6 @@
+.loader-box {
+    position: absolute;
+    margin-top: 47vh;
+    z-index: 5000;
+    margin-left: 47vw;
+}
