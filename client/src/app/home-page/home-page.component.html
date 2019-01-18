@@ -1,41 +1,61 @@
-<div class="sidenav-area parallax-container">
-  <div class="showcase container">
-    <div class="row">
-      <div class="col s12 m10 offset-m1 center">
-        <h5>Welcome To CtrlStock</h5>
-        <h1>Build For The Future</h1>
-        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sit fugit deserunt quos provident aliquam inventore.</p>
-        <br>
-        <br>
-        <a routerLink="faq" class="btn btn-large white purple-text">Learn More</a>
-        <a [ngClass]="{'hide': isAuthenticated()}" routerLink="register" class="btn btn-large purple white-text">Sign Up</a>
+  <div class="sidenav-area parallax-container" #parallaxContainer>
+    <div class="showcase container">
+      <div class="row">
+        <div class="col s12 m10 offset-m1 center">
+          <h5>Welcome To CtrlStock</h5>
+          <h1>Build For The Future</h1>
+          <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sit fugit deserunt quos provident aliquam inventore.</p>
+          <br>
+          <br>
+          <a routerLink="faq" class="btn btn-large white purple-text">Learn More</a>
+          <a [ngClass]="{'hide': isAuthenticated()}" routerLink="register" class="btn btn-large purple white-text">Sign Up</a>
+        </div>
       </div>
     </div>
+    <div class="parallax" #parallax>
+      <img src="../../assets/img/background.jpg">
+    </div>
   </div>
-  <div class="parallax" #parallax>
-    <img src="../../assets/img/background.jpg">
-  </div>
-</div>
 <section class="section section-icons center">
   <div class="container">
     <div class="row">
         <div class="col s12 m6 l5 offset-l1">
-          <div class="card-panel center">
-            <h5 class="grey-text text-darken-4">Monthly</h5>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad, suscipit!</p>
-            <a routerLink="register" [ngClass]="{'disabled': isAuthenticated()}" class="btn btn-lg btn-primary">
-              Sign up and pay 9.99 USD
-            </a>
+          <div class="card small center">
+            <div class="card-content">
+              <h5 class="grey-text text-darken-4">Monthly</h5>
+              <ul>
+                <li>Lorem ipsum dolor sit amet amet</li>
+                <li>Lorem ipsum dolor sit amet</li>
+                <li>Lorem ipsum dolor sit amet ametamet</li>
+                <li>Lorem ipsum dolor sit amet</li>
+                <li>Lorem ipsum dolor sit amet</li>
+              </ul>
+            </div>
+            <div class="card-action">
+              <a routerLink="register" [ngClass]="{'disabled': isAuthenticated()}" class="btn btn-lg btn-primary">
+                Sign up and pay 9.99 USD
+              </a>
+            </div>
           </div>
         </div>
         <div class="col s12 m6 l5">
-          <div class="card-panel center">
-            <h5 class="grey-text text-darken-4">Yearly</h5>
-            <p class="green-text">Save 20$ a year</p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad, suscipit!</p>
-            <a routerLink="register" [ngClass]="{'disabled': isAuthenticated()}" class="btn btn-lg btn-primary">
-              Sign up and pay 99.99 USD
-            </a>
+          <div class="card small center">
+            <div class="card-content">
+              <h5 class="grey-text text-darken-4">Yearly</h5>
+              <span class="green-text">Save 20$ a year</span>
+              <ul>
+                <li>Lorem ipsum dolor sit amet</li>
+                <li>Lorem ipsum dolor sit amet amet</li>
+                <li>Lorem ipsum dolor sit amet ametamet</li>
+                <li>Lorem ipsum dolor sit amet</li>
+                <li>Lorem ipsum dolor sit amet amet</li>
+              </ul>
+            </div>
+            <div class="card-action">
+              <a routerLink="register" [ngClass]="{'disabled': isAuthenticated()}" class="btn btn-lg btn-primary">
+                Sign up and pay 99.99 USD
+              </a>
+            </div>
           </div>
         </div>
       </div>
