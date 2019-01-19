@@ -2,10 +2,14 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { switchMap } from 'rxjs/operators';
 import { UserService } from '../core/services/user.service';
-import { User } from '../core/interfaces';
+import { User, Message } from '../core/interfaces';
 import { MaterialService } from '../core/classes/material.service';
 import { Observable } from 'rxjs';
 import { $checkout } from 'ipsp-js-sdk/dist/checkout.min.js';
+import { UserEditComponent } from './user-edit/user-edit.component';
+import { MatDialog } from '@angular/material';
+import { AuthServise } from '../core/services/auth.service';
+import { UserDeleteComponent } from './user-delete/user-delete.component';
 
 @Component({
   selector: 'app-user-page',
@@ -18,31 +22,45 @@ export class UserPageComponent implements OnInit {
   firstName: String
   lastName: String
   email: String
+  paymentExpiration = new Date()
 
 
-  constructor(private route: ActivatedRoute,
+
+  constructor(public dialog: MatDialog,
+              private auth: AuthServise,
               private userServise: UserService) { }
 
+  public openEdit() {
+      this.dialog.open(UserEditComponent, {
+      height: '400px',
+      width: '700px',
+      position: {top: '70px'}
+    })
+  }
+
+  public openDelete() {
+    this.dialog.open(UserDeleteComponent, {
+      height: '400px',
+      width: '700px',
+      position: {top: '70px'}
+    })
+  }
+
   ngOnInit() {
-    this.route.params
-      .pipe(
-        switchMap(
-          (params: Params) => {
-            return this.userServise.getById(params['id'])
-          }
-        )
-      )
+    this.userServise.getById(this.auth.getId())
       .subscribe(
         (user: User) => {
           this.firstName = user.firstName
           this.lastName = user.lastName
           this.email = user.email
+          this.paymentExpiration = user.paymentExpiration
         },
         error => {
           MaterialService.toast(error.error.message)
         }
       )
   }
+
 pay () {
 
   $checkout('Api').scope(function(){

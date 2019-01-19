@@ -2,8 +2,20 @@
   <div class="container">
     <div class="row">
       <div class="col s12 m3">
-        <h4>{{firstName}} {{lastName}}</h4>
-        <p>{{email}}</p>
+        <h5>{{firstName}} {{lastName}}</h5>
+        <span>{{email}}</span>
+        <div class="card center">  
+          <span class="green-text" *ngIf="paymentExpiration">Paid to {{paymentExpiration | date:'dd.MM.yyyy'}}</span>
+          <span class="red-text" *ngIf="!paymentExpiration">Not paid</span>
+        </div>  
+        <div class="row">
+          <a class="btn light-blue darken-3" (click)="openEdit()">
+              Edit account
+          </a>
+          <a class="btn red darken-1" (click)="openDelete()">
+              Delete account
+          </a>
+        </div>
       </div>
       <div class="col s12 m9">
         <div class="card-panel grey lighten-4 grey-text text-darken-4 z-depth-0">

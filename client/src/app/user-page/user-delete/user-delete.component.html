@@ -1,0 +1,45 @@
+<form
+  [formGroup]="form"
+  >  
+  <h4 mat-dialog-title>Are you absolutely sure?</h4>
+  <div mat-dialog-content>
+    <p class="helper-text red-text">Unexpected bad things will happen if you don’t read this!</p>
+    <p>This action cannot be undone. This will permanently delete your account, and you will not be able to use our program.</p>
+    <p>Please type your email to confirm.</p>
+    <div class="input-field">
+      <input 
+        [ngClass]="{'invalid': form.get('email').invalid && form.get('email').touched}"
+        formControlName="email"
+        type="email" 
+        id="email">
+      <label class="active" for="email">Email</label>
+      <span 
+        class="helper-text red-text"
+        *ngIf="form.get('email').invalid && form.get('email').touched"
+        >
+        <span *ngIf="form.get('email').errors['required']">Email is required</span>
+        <span *ngIf="form.get('email').errors['email']">Enter a valid email</span>
+      </span>
+    </div>
+  </div>
+
+  <div class="right-align">
+      <button (click)="close()"
+        class="modal-close btn grey"
+        [disabled]="form.disabled"
+        >
+        Cancel
+      </button>
+  
+      <button  
+        type="submit"
+        (click)="deleteUser()"
+        class="modal-action modal-close btn purple waves-effect"
+        [disabled]="form.invalid || form.disabled"
+        >
+        Delete Account
+      </button>
+    </div>
+</form>
+
+

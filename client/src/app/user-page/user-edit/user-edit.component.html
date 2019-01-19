@@ -1,0 +1,67 @@
+<form
+  [formGroup]="form"
+  >  
+  <h4 mat-dialog-title>Account Login</h4>
+  <div mat-dialog-content>
+    <p>Login to access your account dashboard</p>
+    <div class="input-field">
+      <input 
+        formControlName="firstName"
+        type="text" 
+        id="first_name">
+      <label class="active" for="first_name">First Name</label>
+      <span 
+        class="helper-text red-text"
+        *ngIf="form.get('firstName').invalid && form.get('firstName').touched"
+        >
+        <span *ngIf="form.get('firstName').errors['required']">First Name is required</span>
+      </span>
+    </div>
+    <div class="input-field">
+      <input 
+        formControlName="lastName"
+        type="text" 
+        id="last_name">
+      <label class="active" for="last_name">Last Name</label>
+      <span 
+        class="helper-text red-text"
+        *ngIf="form.get('lastName').invalid && form.get('lastName').touched"
+        >
+        <span *ngIf="form.get('lastName').errors['required']">Last Name is required</span>
+      </span>
+    </div>
+    <div class="input-field">
+      <input 
+        [ngClass]="{'invalid': form.get('email').invalid && form.get('email').touched}"
+        formControlName="email"
+        type="email" 
+        id="email">
+      <label class="active" for="email">Email</label>
+      <span 
+        class="helper-text red-text"
+        *ngIf="form.get('email').invalid && form.get('email').touched"
+        >
+        <span *ngIf="form.get('email').errors['required']">Email is required</span>
+        <span *ngIf="form.get('email').errors['email']">Enter a valid email</span>
+      </span>
+    </div>
+  </div>
+
+  <div class="right-align">
+    <button (click)="close()"
+      class="modal-close btn grey"
+      [disabled]="form.disabled"
+      >
+      Cancel
+    </button>
+
+    <button  
+      type="submit"
+      (click)="onSubmit()"
+      class="modal-action modal-close btn purple waves-effect"
+      [disabled]="form.invalid || form.disabled"
+      >
+      Save changes
+    </button>
+  </div>
+</form>

@@ -5,6 +5,7 @@ export interface User {
     password: string
     confirmPassword: string
     id?: string
+    paymentExpiration?: Date
 }
 
 export interface Message {

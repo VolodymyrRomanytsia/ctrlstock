@@ -32,19 +32,23 @@ module.exports.remove = async function(req, res) {
 
 
 module.exports.update = async function(req, res) {
-  try {
-    const user = await User.findOneAndUpdate(
-      {_id: req.params.id},
-      {$set: {email: req.body.email,
-              firstName: req.body.firstName, 
-              lastName: req.body.lastName}},
-      {new: true}
-    )
-    res.status(200).json(user)
-  } catch (e) {
-    errorHandler(res, e)
+    try {
+      await User.findOneAndUpdate(
+        {_id: req.params.id},
+        {$set: {email: req.body.email,
+                firstName: req.body.firstName, 
+                lastName: req.body.lastName}},
+        {new: true}
+      )
+      res.status(200).json({
+        message: 'Дані успішно змінено.'
+      })
+    } catch (e) {
+      errorHandler(res.status(409).json({
+        message: 'Користувач з таким email вже існує'
+      }), e)
+    }
   }
-}
 
 module.exports.getCheck = async function(req, res) {
   try {

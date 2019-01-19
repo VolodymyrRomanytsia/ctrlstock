@@ -2,6 +2,7 @@ import {Injectable} from '@angular/core'
 import {HttpClient} from '@angular/common/http'
 import {User, Message} from '../interfaces'
 import {Observable} from 'rxjs'
+import { userInfo } from 'os';
 
 @Injectable({
   providedIn: 'root'
@@ -26,8 +27,8 @@ export class UserService {
     return this.http.post<User>(`/api/user/${id}`, payment)
   }
 
-  update(id: string, user: User): Observable<User> {
-    return this.http.patch<User>(`/api/user/${id}`, user)
+  update(id: string, user: User): Observable<Message> {
+    return this.http.patch<Message>(`/api/user/${id}`, user)
   }
 
   delete(id: string): Observable<Message> {
