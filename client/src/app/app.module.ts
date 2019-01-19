@@ -1,7 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule, NoopAnimationsModule } from '@angular/platform-browser/animations';
@@ -13,18 +12,10 @@ import { LayoutComponent } from './core/layout/layout.component';
 import { LoginComponent } from './core/login/login.component';
 import { FooterComponent } from './core/footer/footer.component';
 import { HomePageComponent } from './home-page/home-page.component';
-import { SolutionPageComponent } from './solution-page/solution-page.component';
 import { RegisterPageComponent } from './register-page/register-page.component';
-import { UserPageComponent } from './user-page/user-page.component';
-import { TokenInterceptor } from './core/classes/token.interceptor';
 import { NewPasswordPageComponent } from './new-password-page/new-password-page.component';
 import { FaqPageComponent } from './faq-page/faq-page.component';
-import { LoaderComponent } from './core/loader/loader.component';
-import { LoaderInterceptorService } from './core/services/loader-interceptor.service';
-import { UserEditComponent } from './user-page/user-edit/user-edit.component';
-import { UserDeleteComponent } from './user-page/user-delete/user-delete.component';
-
-
+import { CoreModule } from './core/core.module';
 
 
 @NgModule({
@@ -32,16 +23,11 @@ import { UserDeleteComponent } from './user-page/user-delete/user-delete.compone
     AppComponent,
     FooterComponent,
     HomePageComponent,
-    SolutionPageComponent,
     RegisterPageComponent,
     LoginComponent,
     LayoutComponent,
-    UserPageComponent,
     NewPasswordPageComponent,
-    FaqPageComponent,
-    LoaderComponent,
-    UserEditComponent,
-    UserDeleteComponent
+    FaqPageComponent
   ],
   imports: [
     BrowserModule,
@@ -51,21 +37,9 @@ import { UserDeleteComponent } from './user-page/user-delete/user-delete.compone
     MaterialModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
-  ],
-  providers: [
-    {
-      provide: HTTP_INTERCEPTORS,
-      multi: true,
-      useClass: TokenInterceptor
-    },
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: LoaderInterceptorService,
-      multi: true
-    }
+    CoreModule
   ],
   bootstrap: [AppComponent],
-  entryComponents: [LoginComponent, UserEditComponent, UserDeleteComponent]
+  entryComponents: [LoginComponent]
 })
 export class AppModule { }

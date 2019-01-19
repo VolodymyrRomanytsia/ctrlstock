@@ -1,6 +1,6 @@
 <div class="row loader-box" >
   <div class="col s12 center">
-    <div class="preloader-wrapper" [class.active]="show">
+    <div class="preloader-wrapper" [ngClass]="{'active': show}">
       <div class="spinner-layer spinner-red-only">
         <div class="circle-clipper left">
           <div class="circle"></div>
