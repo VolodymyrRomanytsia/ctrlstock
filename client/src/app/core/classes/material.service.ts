@@ -1,23 +1,25 @@
-import { ElementRef } from '@angular/core';
+import { ElementRef, Renderer2 } from '@angular/core';
 
-declare var M
+declare var M: any
 
 export interface MaterialInstance {
     open?(): void
     close?(): void
     destroy?(): void
 }
+
   
-// export interface MaterialDatepicker extends MaterialInstance {
-//     date?: Date
-// }
+export interface MaterialDatepicker extends MaterialInstance {
+    date?: Date
+}
 
 export class MaterialService {
     static toast(message: string) {
         M.toast({html: message})
     }
-    static parallax(ref: ElementRef){
-        M.Parallax.init(ref.nativeElement)
+
+    static parallax(ref: ElementRef): MaterialInstance {
+      return M.Parallax.init(ref.nativeElement)
     }  
     
     // static initializeFloatingButton(ref: ElementRef) {
@@ -36,13 +38,13 @@ export class MaterialService {
     //     return M.Tooltip.init(ref.nativeElement)
     // }
     
-    // static initDatepicker(ref: ElementRef, onClose: () => void): MaterialDatepicker {
-    //     return M.Datepicker.init(ref.nativeElement, {
-    //       format: 'dd.mm.yyyy',
-    //       showClearBtn: true,
-    //       onClose
-    //     })
-    // }
+    static initDatepicker(ref: ElementRef, onClose: () => void): MaterialDatepicker {
+        return M.Datepicker.init(ref.nativeElement, {
+          format: 'dd.mm.yyyy',
+          showClearBtn: true,
+          onClose
+        })
+    }
     
     // static initTapTarget(ref: ElementRef): MaterialInstance {
     //     return M.TapTarget.init(ref.nativeElement)
