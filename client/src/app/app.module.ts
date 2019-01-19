@@ -21,6 +21,8 @@ import { NewPasswordPageComponent } from './new-password-page/new-password-page.
 import { FaqPageComponent } from './faq-page/faq-page.component';
 import { LoaderComponent } from './core/loader/loader.component';
 import { LoaderInterceptorService } from './core/services/loader-interceptor.service';
+import { UserEditComponent } from './user-page/user-edit/user-edit.component';
+import { UserDeleteComponent } from './user-page/user-delete/user-delete.component';
 
 
 
@@ -37,7 +39,9 @@ import { LoaderInterceptorService } from './core/services/loader-interceptor.ser
     UserPageComponent,
     NewPasswordPageComponent,
     FaqPageComponent,
-    LoaderComponent
+    LoaderComponent,
+    UserEditComponent,
+    UserDeleteComponent
   ],
   imports: [
     BrowserModule,
@@ -62,6 +66,6 @@ import { LoaderInterceptorService } from './core/services/loader-interceptor.ser
     }
   ],
   bootstrap: [AppComponent],
-  entryComponents: [LoginComponent]
+  entryComponents: [LoginComponent, UserEditComponent, UserDeleteComponent]
 })
 export class AppModule { }
