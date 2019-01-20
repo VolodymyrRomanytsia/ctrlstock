@@ -3,10 +3,9 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Subscription } from 'rxjs';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { MaterialService } from 'src/app/core/classes/material.service';
-import { Router } from '@angular/router';
 import { UserService } from 'src/app/core/services/user.service';
 import { AuthServise } from 'src/app/core/services/auth.service';
-import { User, Message } from 'src/app/core/interfaces';
+import { Message } from 'src/app/core/interfaces';
 
 @Component({
   selector: 'app-user-edit',
@@ -16,13 +15,15 @@ import { User, Message } from 'src/app/core/interfaces';
 export class UserEditComponent implements OnInit, OnDestroy {
 
   form: FormGroup
-  user: User
   message: Message
   aSub: Subscription
+
   
   
   constructor(private matDialogRef: MatDialogRef<UserEditComponent>,
-              @Inject(MAT_DIALOG_DATA) public data: any,
+              @Inject(MAT_DIALOG_DATA) private data: {firstName: String
+                                                      lastName: String
+                                                      email: String},
               private userServise: UserService,
               private auth: AuthServise) { }
 
@@ -32,23 +33,11 @@ export class UserEditComponent implements OnInit, OnDestroy {
       lastName: new FormControl(null,  [Validators.required]),
       email: new FormControl(null, [Validators.required, Validators.email])
     })
-
-    this.form.disable();
-
-    this.userServise.getById(this.auth.getId()).subscribe(
-      (user: User) => {
-        if (user) {
-          this.user = user;
-          this.form.patchValue({
-            firstName: user.firstName,
-            lastName: user.lastName,
-            email: user.email,
-          });
-        }
-        this.form.enable();
-      }
-    )
-
+    this.form.patchValue({
+      firstName: this.data.firstName,
+      lastName: this.data.lastName,
+      email: this.data.email,
+    });
   }
 
   ngOnDestroy() {

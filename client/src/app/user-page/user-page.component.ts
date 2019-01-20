@@ -1,10 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Params } from '@angular/router';
-import { switchMap } from 'rxjs/operators';
 import { UserService } from '../core/services/user.service';
-import { User, Message } from '../core/interfaces';
+import { User } from '../core/interfaces';
 import { MaterialService } from '../core/classes/material.service';
-import { Observable } from 'rxjs';
 import { $checkout } from 'ipsp-js-sdk/dist/checkout.min.js';
 import { UserEditComponent } from './user-edit/user-edit.component';
 import { MatDialog } from '@angular/material';
@@ -33,16 +30,24 @@ export class UserPageComponent implements OnInit {
   public openEdit() {
       this.dialog.open(UserEditComponent, {
       height: '400px',
-      width: '700px',
-      position: {top: '70px'}
+      width: '600px',
+      position: {top: '70px'},
+      data: {
+        firstName: this.firstName,
+        lastName: this.lastName,
+        email: this.email
+      }
     })
   }
 
   public openDelete() {
     this.dialog.open(UserDeleteComponent, {
       height: '400px',
-      width: '700px',
-      position: {top: '70px'}
+      width: '600px',
+      position: {top: '70px'},
+      data: {
+        email: this.email
+      }
     })
   }
 

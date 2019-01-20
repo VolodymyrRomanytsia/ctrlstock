@@ -19,6 +19,7 @@
         >
         <span *ngIf="form.get('email').errors['required']">Email is required</span>
         <span *ngIf="form.get('email').errors['email']">Enter a valid email</span>
+        <span *ngIf="form.get('email').errors['MatchEmail'] && !form.get('email').errors['email'] && !form.get('email').errors['required']">Email mismatch</span>
       </span>
     </div>
   </div>

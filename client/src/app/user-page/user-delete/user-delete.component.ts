@@ -5,7 +5,8 @@ import { AuthServise } from 'src/app/core/services/auth.service';
 import { Message, User } from 'src/app/core/interfaces';
 import { Subscription } from 'rxjs';
 import { MaterialService } from 'src/app/core/classes/material.service';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { FormGroup, FormControl, Validators, AbstractControl } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-user-delete',
@@ -20,15 +21,31 @@ export class UserDeleteComponent implements OnInit, OnDestroy {
   aSub: Subscription
   
   constructor(private matDialogRef: MatDialogRef<UserDeleteComponent>,
-              @Inject(MAT_DIALOG_DATA) public data: any,
+              @Inject(MAT_DIALOG_DATA) private data: {email: String},
               private userServise: UserService,
-              private auth: AuthServise) { }
+              private auth: AuthServise,
+              private router: Router) { }
 
   ngOnInit() {
+    let confirmEmail = this.data.email
     this.form = new FormGroup({
-      email: new FormControl(null, [Validators.required, Validators.email])
+      email: new FormControl(null, [Validators.required, Validators.email, emailMatchValidator])
     })
+
+    function emailMatchValidator(control: FormControl){
+      if(control.value != confirmEmail) {
+          return {
+            MatchEmail: true
+          }
+        } else {
+          return null
+      }
+    }
+
   }
+
+
+  
 
   ngOnDestroy() {
     if (this.aSub) {
@@ -42,7 +59,10 @@ export class UserDeleteComponent implements OnInit, OnDestroy {
     this.userServise.delete(this.auth.getId())
       .subscribe(
         (message: Message) => {
+          this.matDialogRef.close()
           MaterialService.toast(message.message)
+          this.auth.logout()
+          this.router.navigate([''])
         },
         error => {
           MaterialService.toast(error.error.message)
